@@ -14,11 +14,13 @@ pipeline {
         }
         stage("Skills assesment"){
             steps {
-                if(${params.myBoolean}) {
-                    echo "Fantastic!"
-                }
-                else {
-                    echo "Maybe you need to practice a little more."
+                script{
+                    if(${params.myBoolean}) {
+                        echo "Fantastic!"
+                    }
+                    else {
+                        echo "Maybe you need to practice a little more."
+                    }
                 }
                 echo "You choose ${params.choiceParam} as your confidence level."
             }
