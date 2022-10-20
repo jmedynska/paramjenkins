@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    parameters {
+        string(defaultValue: "Anonim", description: "What is your name?", name: "stringParam")
+        booleanParam(defaultValue: false, description: "Are you happy with your Jenkins skills?", name: "myBoolean")
+        choice(choices: ["Very good", "Good", "OK", "Not so good", "Bad"], description: "How would you describe your confidence in working with Jenkins?", name: "choiceParam")
+
+    }
+    stages {
+        stage("User input demo"){
+            steps {
+                echo "Hello ${params.stringParam}. I hope you doin' well."
+            }
+        }
+        stage("Skills assesment"){
+            steps {
+                if(${params.myBoolean}) {
+                    echo "Fantastic!"
+                }
+                else {
+                    echo "Maybe you need to practice a little more."
+                }
+                echo "You choose ${params.choiceParam} as your confidence level."
+            }
+        }
+    }
+}
