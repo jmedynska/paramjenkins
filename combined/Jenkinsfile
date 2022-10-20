@@ -15,7 +15,7 @@ pipeline {
         stage("Skills assesment"){
             steps {
                 script{
-                    if(${params.myBoolean}) {
+                    if(params.myBoolean) {
                         echo "Fantastic!"
                     }
                     else {
